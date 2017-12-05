@@ -1,0 +1,197 @@
+﻿@model EducationalWebsite.ViewModels.StudentVm
+@{
+    ViewBag.Title = "AddStudent";
+    Layout = "~/Views/Shared/_Admin_layout.cshtml";
+}
+@Styles.Render("~/bundles/LibStudentcss")
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>Add t</h2>
+            <small class="text-muted">Welcome to Swift application</small>
+        </div>
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>Basic Information <small>Description text here...</small> </h2>
+                        <ul class="header-dropdown m-r--5">
+                            <li class="dropdown">
+                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="zmdi zmdi-more-vert"></i></a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="javascript:void(0);" class=" waves-effect waves-block">Action</a></li>
+                                    <li><a href="javascript:void(0);" class=" waves-effect waves-block">Another action</a></li>
+                                    <li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    @using (Html.BeginForm("AddStudent", "Student", FormMethod.Post))
+                    {
+                        <div class="body">
+                            <div class="row clearfix">
+                                <div class="col-lg-6 col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            @Html.TextBoxFor(m => m.Student.Name, new { @class = "form-control", @placeholder = "Complete Name" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            @Html.TextBoxFor(m => m.Student.FatherName, new { @class = "form-control", @placeholder = "Father Name" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-lg-4 col-sm-4 col-xs-12">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            @Html.TextBoxFor(m => m.Student.Roll_No, new { @class = "form-control", @placeholder = "Roll No" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-sm-4 col-xs-12">
+                                    <div class="form-group drop-custum">
+                                        @Html.DropDownListFor(m => m.Student.ClassCode, new SelectList(Model.Classes, "Id", "Name"), "Select Class", new { @class = "form-control show-tick" })
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-sm-4 col-xs-12">
+                                    <div class="form-group drop-custum">
+                                        @Html.DropDownListFor(m => m.Student.SectionId, new SelectList(Model.ClassSections, "Id", "Name"), "Select Section", new { @class = "form-control show-tick" })
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="row clearfix">
+
+                                    <div class="col-lg-4 col-sm-4 col-xs-12">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                @Html.TextBoxFor(e => e.Student.B_Form, new { @class = "form-control", @placeholder = "B-Form / CNIC" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-4 col-xs-12">
+                                        <div class="form-group drop-custum">
+                                            @Html.DropDownListFor(m => m.Student.GenderId, new SelectList(Model.Genders, "Id", "Type"), "Select Gender", new { @class = "form-control show-tick" })
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-4 col-xs-12">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                @Html.TextBoxFor(m => m.Student.DateofBirth, "{0:dddd dd MMMM yyyy}", new { @class = "datepicker form-control", @placeholder = "Date Of Birth" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <div class="row clearfix">
+                                <div class="col-lg-4 col-sm-4 col-xs-12">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            @Html.TextBoxFor(m => m.Student.Contact, new { @class = "form-control", @placeholder = "Contact" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-8 col-sm-8 col-xs-12">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            @Html.TextBoxFor(m => m.Student.Address, new { @class = "form-control", @placeholder = "Address" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                            @*<div class="row clearfix">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <form action="" id="frmFileUpload" class="dropzone" method="post" enctype="multipart/form-data">
+                                            <div class="dz-message">
+                                                <div class="drag-icon-cph"> <i class="material-icons">touch_app</i> </div>
+                                                <h3>Drop files here or click to upload.</h3>
+                                                <em>(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</em>
+                                            </div>
+                                            <div class="fallback">
+                                                <input name="file" type="file" multiple />
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>*@
+                            <div class="row clearfix">
+                                @*<div class="col-sm-12">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <textarea rows="4" class="form-control no-resize" placeholder="Description"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>*@
+                                @Html.HiddenFor(m => m.Student.Id)
+                                <div class="col-xs-12">
+                                    <button type="submit" class="btn btn-raised g-bg-blush2">Save</button>
+                                    <button type="reset" class="btn btn-raised">Reset</button>
+                                </div>
+                            </div>
+                        </div>
+                   
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="row clearfix">
+            <div class="col-md-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>Account Information <small>Description text here...</small> </h2>
+                        <ul class="header-dropdown m-r--5">
+                            <li class="dropdown">
+                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="zmdi zmdi-more-vert"></i></a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="javascript:void(0);" class=" waves-effect waves-block">Action</a></li>
+                                    <li><a href="javascript:void(0);" class=" waves-effect waves-block">Another action</a></li>
+                                    <li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="body">
+                        <div class="row clearfix">
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" placeholder="Email">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" placeholder="Phone">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" placeholder="Password">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" placeholder="Confirm Password">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <button type="submit" class="btn btn-raised">Submit</button>
+                                <button type="submit" class="btn btn-raised">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@Scripts.Render("~/bundles/LibStudentjs")

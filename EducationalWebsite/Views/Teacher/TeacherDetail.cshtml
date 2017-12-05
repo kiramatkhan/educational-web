@@ -1,0 +1,68 @@
+﻿@model IEnumerable<EducationalWebsite.Models.Teacher>
+@{
+    ViewBag.Title = "Teacherdetail";
+
+    <h2>Teacherdetail</h2>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="block-header">
+                <h2>All Teachers</h2>
+                <small class="text-muted">Welcome to School and collegeS application</small>
+            </div>
+            <div class="row clearfix">
+                @foreach (var hum in Model)
+                {
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">                        
+                        <div class="card">
+                            <div class="body">
+                                <div class="member-card verified">
+                                    <ul class="header-dropdown">
+                                        <li class="dropdown">
+                                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><i class="zmdi zmdi-more-vert"></i></a>
+                                            <ul class="dropdown-menu pull-right">
+                                                <li><a href="javascript:void(0);" class=" waves-effect waves-block">Edit</a></li>
+                                                @*<li><a href="@Url.Action("Teacherprofile","Teacher") class=" waves-effect waves-block">Delete</a></li>*@
+                                                <li><a href="javascript:void(0);" class=" waves-effect waves-block">Block</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <div class="thumb-xl member-thumb">
+                                        <img src="~/AdminContent/images/random-avatar3.jpg" class="img-circle" alt="profile-image">
+                                        <i class="zmdi zmdi-info" title="Permanent"></i>
+                                    </div>
+
+                                    <div class="">
+                                        <h4 class="m-b-5">@hum.FirstName  @hum.LastName</h4>
+                                        <p class="text-muted">@hum.Phone </p>
+                                        <p class="text-muted">@hum.Address </p>
+
+                                    </div>
+                                    
+                                    <a href="@Url.Action("Teacherprofile","Teacher",new { Id=hum.Id})" class="btn btn-raised btn-sm">View Profile</a>
+                                    <ul class="social-links list-inline m-t-10">
+                                        <li><a title="facebook" href="#"><i class="zmdi zmdi-facebook"></i></a></li>
+                                        <li><a title="twitter" href="#"><i class="zmdi zmdi-twitter"></i></a></li>
+                                        <li><a title="instagram" href="3.html"><i class="zmdi zmdi-instagram"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                
+                
+            </div>
+            <div class="row clearfix">
+                <div class="col-xs-12 text-center">
+                    <a href="#" class="btn btn-raised g-bg-cyan">Add Teacher</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- main content -->
+
+@Html.ActionLink("Teacherdetail", "Teacherdetail", "Teacher", new { @class = "btn - btn - primary" })
+
+    <br />
+    }
+  
